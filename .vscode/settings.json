@@ -1,4 +1,13 @@
 {
 	"code-runner.runInTerminal": true,
-  "code-runner.defaultLanguage": "python"
+"code-runner.defaultLanguage": "python",
+"cSpell.words": [
+  "blit",
+  "KEYDOWN",
+  "pygame"
+],
+"pylint.args": [
+  "--unsafe-load-any-extension=y"
+],
+"python.analysis.typeCheckingMode": "basic"
 }

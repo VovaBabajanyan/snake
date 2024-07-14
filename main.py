@@ -1,6 +1,6 @@
-import pygame
-import time
+"""Игра Змейка"""
 import random
+import pygame
 
 
 pygame.init()
@@ -20,22 +20,29 @@ font_style = pygame.font.SysFont(None, 30)
 
 
 def message(msg, color):
+    """ Вывод сообщения на экран """
     text_surface = font_style.render(msg, True, color)
-    dis.blit(text_surface, [dis_width/2 - text_surface.get_width()/2, dis_height/2 - text_surface.get_height()/2])
+    dis.blit(text_surface,
+             [
+                 dis_width/2 - text_surface.get_width()/2,
+                 dis_height/2 - text_surface.get_height()/2
+             ]
+             )
 
 
-def gameLoop():
+def game_loop():
+    """Основной цикл игры"""
     game_over = False
     game_close = False
     x1 = dis_width / 2
     y1 = dis_height / 2
     x1_change = 0
     y1_change = 0
-    foodx = round(random.randrange(0, dis_width - snake_block))
-    foody = round(random.randrange(0, dis_height - snake_block))
+    food_x = round(random.randrange(0, dis_width - snake_block))
+    food_y = round(random.randrange(0, dis_height - snake_block))
 
     while not game_over:
-        while game_close == True:
+        while game_close:
             dis.fill(white)
             message("Вы проиграли! Нажмите Q для выхода или C для повторной игры", red)
             pygame.display.update()
@@ -45,7 +52,7 @@ def gameLoop():
                         game_over = True
                         game_close = False
                     if event.key == pygame.K_c:
-                        gameLoop()
+                        game_loop()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_over=True
@@ -68,7 +75,7 @@ def gameLoop():
         y1 += y1_change
         dis.fill(white)
 
-        pygame.draw.rect(dis, blue, [foodx, foody, snake_block, snake_block])
+        pygame.draw.rect(dis, blue, [food_x, food_y, snake_block, snake_block])
         pygame.draw.rect(dis, black, [x1, y1, snake_block, snake_block])
         pygame.display.update()
         clock.tick(snake_speed)
@@ -76,4 +83,4 @@ def gameLoop():
     quit()
 
 
-gameLoop()
+game_loop()
