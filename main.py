@@ -36,8 +36,14 @@ clock = pygame.time.Clock()  # Инициализация переменной c
 
 def your_score(score):
     """Вывод результата игры"""
-    value = score_font.render("Ваш счет: " + str(score), True, score_color)
+    value = score_font.render("Счет: " + str(score), True, score_color)
     display.blit(value, [0, 0])
+
+
+def your_speed(speed):
+    """Вывод результата игры"""
+    value = score_font.render("Скорость: " + str(speed), True, score_color)
+    display.blit(value, [0, value.get_height()])
 
 
 def our_snake(block, snake_list):
@@ -78,6 +84,7 @@ def game_loop():
             display.fill(background_color)
             message("Вы проиграли! Нажмите Q для выхода или C для повторной игры", red)
             your_score(length_of_snake - 1)
+            your_speed(snake_speed-9)
             pygame.display.update()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -126,6 +133,7 @@ def game_loop():
 
         our_snake(snake_block, snake_list)
         your_score(length_of_snake - 1)
+        your_speed(snake_speed-9)
         pygame.display.update()
 
         if x1 == food_x and y1 == food_y:
@@ -134,7 +142,7 @@ def game_loop():
             food_y = round(random.randrange(
                 0, display.get_height() - snake_block) / snake_block) * snake_block
             length_of_snake += 1
-            if length_of_snake % 5 == 0:
+            if length_of_snake-1 % 4 == 0:
                 snake_speed += 1
 
         clock.tick(snake_speed)
