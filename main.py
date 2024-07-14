@@ -2,9 +2,16 @@
 import random  # добавляем библиотеку random
 import pygame  # добавляем библиотеку pygame
 import os
+import sys
 
 # get the directory of this file
-sourceFileDir = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, 'frozen', False):
+    # If the application is run as a bundle, the PyInstaller bootloader
+    # extends the sys module by a flag frozen=True and sets the app 
+    # path into variable _MEIPASS'.
+    application_path = sys._MEIPASS
+else:
+    application_path = os.path.dirname(os.path.abspath(__file__))
 
 pygame.init()  # Инициализация библиотеки pygame
 
@@ -29,7 +36,7 @@ snake_block = 20  # Размер блока змейки и еды
 font_style = pygame.font.SysFont("bahnschrift", 25)  # Основой шрифт игры
 score_font = pygame.font.SysFont("comicsansms", 35)  # Шрифт для счета
 
-iconPath = os.path.join(sourceFileDir, 'snake_32.png')
+iconPath = os.path.join(application_path, 'snake_32.png')
 icon = pygame.image.load(iconPath) 
 pygame.display.set_icon(icon)
 

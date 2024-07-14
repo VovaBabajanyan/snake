@@ -8,7 +8,7 @@ python main.py
 
 ## Компилирование
 ```bash
-pyinstaller --onefile --noconsole --icon=snake.ico main.py -n snake
+pyinstaller --onefile --noconsole --icon=snake.ico --add-data "snake_32.png:." main.py -n snake
 ```
 
 ```bash
