@@ -18,8 +18,8 @@ background_color = blue  # Цвет фона
 food_color = green       # Цвет еды
 score_color = yellow     # Цвет счета
 
-display_width = 1200   # Ширина игрового поля
-display_height = 1000  # Высота игрового поля
+display_width = 1000   # Ширина игрового поля
+display_height = 800  # Высота игрового поля
 
 snake_block = 20  # Размер блока змейки и еды
 
@@ -147,7 +147,7 @@ def game_loop():
 
         clock.tick(snake_speed)
     pygame.quit()
-    quit()
+    # quit()
 
 
 game_loop()
