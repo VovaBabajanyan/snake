@@ -11,6 +11,10 @@ python main.py
 pyinstaller --onefile --noconsole main.py -n snake
 ```
 
+```bash
+.\dist\snake.exe
+```
+
 ## Установка зависимостей Windows
 
 Создание виртуального окружения
