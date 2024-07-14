@@ -6,6 +6,11 @@
 python main.py
 ```
 
+## Компилирование
+```bash
+pyinstaller --onefile --noconsole main.py -n snake
+```
+
 ## Установка зависимостей Windows
 
 Создание виртуального окружения

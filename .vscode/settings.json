@@ -9,5 +9,6 @@
 "pylint.args": [
   "--unsafe-load-any-extension=y"
 ],
-"python.analysis.typeCheckingMode": "basic"
+"python.analysis.typeCheckingMode": "basic",
+"cSpell.language": "en,ru"
 }
