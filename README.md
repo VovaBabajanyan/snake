@@ -1,6 +1,28 @@
 # Snake
 
-## Установка зависимостей
+## Запуск игры
+
+```bash
+python main.py
+```
+
+## Установка зависимостей Windows
+
+Создание виртуального окружения
+
+```bash
+python.exe -m venv venv
+.\venv\Scripts\activate.bat
+```
+
+Установка зависимостей
+
+```bash
+python.exe -m pip install --upgrade pip
+pip.exe install -r requirements.txt
+```
+
+## Установка зависимостей Linux
 
 Создание виртуального окружения
 
