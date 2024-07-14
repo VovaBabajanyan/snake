@@ -1,7 +1,10 @@
 """Игра Змейка"""
 import random  # добавляем библиотеку random
 import pygame  # добавляем библиотеку pygame
+import os
 
+# get the directory of this file
+sourceFileDir = os.path.dirname(os.path.abspath(__file__))
 
 pygame.init()  # Инициализация библиотеки pygame
 
@@ -26,12 +29,16 @@ snake_block = 20  # Размер блока змейки и еды
 font_style = pygame.font.SysFont("bahnschrift", 25)  # Основой шрифт игры
 score_font = pygame.font.SysFont("comicsansms", 35)  # Шрифт для счета
 
+iconPath = os.path.join(sourceFileDir, 'snake_32.png')
+icon = pygame.image.load(iconPath) 
+pygame.display.set_icon(icon)
 
 # display = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-
 display = pygame.display.set_mode(
     (display_width, display_height))  # Уставка размера окна
 pygame.display.set_caption("Змейка")  # Задается название окна
+
+
 clock = pygame.time.Clock()  # Инициализация переменной clock
 
 def your_score(score):
@@ -142,7 +149,7 @@ def game_loop():
             food_y = round(random.randrange(
                 0, display.get_height() - snake_block) / snake_block) * snake_block
             length_of_snake += 1
-            if length_of_snake-1 % 4 == 0:
+            if (length_of_snake-1) % 4 == 0:
                 snake_speed += 1
 
         clock.tick(snake_speed)
